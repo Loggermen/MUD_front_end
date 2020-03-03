@@ -28,7 +28,7 @@ const LoginPage = (props) => {
             .post('https://lambda-mud-test.herokuapp.com/api/login/', newLogin)
             // .then(response => console.log(response.data, "login"))
             .then(response => {
-                localStorage.setItem('token', response.data.key);
+                localStorage.setItem('Token', response.data.key);
                 console.log('response', response)
 
             })
