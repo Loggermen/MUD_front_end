@@ -1,8 +1,11 @@
 import React from 'react';
+import Initialbox from './initialbox';
 
 function Game() {
     return(
-        <div>Hello</div>
+        <div>
+            <Initialbox/>
+        </div>
     )
 }
 
