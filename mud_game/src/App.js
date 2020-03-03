@@ -4,6 +4,8 @@ import logo from './logo.svg';
 import './App.css';
 import Loginpage from './components/loginpage';
 import Register from './components/register';
+import PrivateRoute from './components/privateroute';
+import Game from './components/game';
 
 function App() {
   return (
@@ -18,11 +20,18 @@ function App() {
           <li>
             <Link to='/register'>Register</Link>
           </li>
+          <li>
+            <Link to='/game'>Game</Link>
+          </li>
         </ul>
       </div>
       <switch>
         <Route exact path="/login" component={Loginpage}/>
         <Route exact path="/register" component={Register}/>
+        <PrivateRoute 
+          path="/game" 
+          component={Game}/>
+          <Route exact path="/login" component={Loginpage} />
       </switch>
       </Router>
       </header>
