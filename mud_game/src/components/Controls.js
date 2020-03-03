@@ -9,14 +9,12 @@ const Controls = () => {
     //   });
 
     const movement = input => {
-        // event.preventDefault()
         console.log(input,'"inn')
 
         axiosWithAuth()
             .post('https://lambda-mud-test.herokuapp.com/api/adv/move/', {direction: input})
             .then(response => console.log(response, "moveeeeeeee"))
             // .then(response => {
-            //     localStorage.setItem('token', response.data.key);
             //     console.log('response', response)
 
             // })
