@@ -6,7 +6,7 @@ import Map from './Map.js'
 function Game() {
     return(
         <div>
-            <Initialbox/>
+            {/* <Initialbox/> */}
             <div>Hello</div>
             <Map/>
             <Controls/>
