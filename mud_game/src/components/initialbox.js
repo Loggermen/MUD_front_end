@@ -9,24 +9,24 @@ const useStyles = makeStyles({
     }
   });
 
-function Initialbox() {
+function Initialbox(props) {
     const classes = useStyles();
     const [info, setInfo] = useState({});
+    console.log('this is props', props)
 
     useEffect(() => {
         axios
-            // console.log(localStorage.getItem("token"), 'TOKEN HERE')
-        .get('https://lambda-mud-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("token")}` },
+        .get('https://lambda-mud-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
             "Content-Type": "application/json"})
         .then(response => {
-            console.log('information', response)
-            setInfo(response.data)
+            console.log('information', response);
+            setInfo(response.data);
             })
 
         .catch(error => {
             console.log("did not get info", error);
-        })
-    },[]);
+        });
+    },[props]);
 
     console.log(info, 'THIS IS INFO after the axios call');
 

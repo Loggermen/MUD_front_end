@@ -31,7 +31,6 @@ function App() {
         <PrivateRoute 
           path="/game" 
           component={Game}/>
-          <Route exact path="/login" component={Loginpage} />
       </switch>
       </Router>
       </header>
