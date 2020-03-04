@@ -5,7 +5,6 @@ import Map from './Map.js'
 function Game() {
     return(
         <div className='game'>
-            <div>Hello</div>
             <Map/>
             <Controls/>
         </div>
