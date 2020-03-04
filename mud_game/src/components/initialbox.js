@@ -1,8 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import {axiosWithAuth} from'../utils/axiosWithAuth';
+import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 
+const useStyles = makeStyles({
+    root: {
+      width: '20%',
+      border: '2px solid black'
+    }
+  });
+
 function Initialbox() {
+    const classes = useStyles();
     const [info, setInfo] = useState({});
 
     useEffect(() => {
@@ -23,7 +31,7 @@ function Initialbox() {
     console.log(info, 'THIS IS INFO after the axios call');
 
     return(
-        <div className='infoBox'>
+        <div className={classes.root}>
             <h3>Info</h3>
             <h4>Player: {info.name}</h4>
             <h4>Current Area: {info.title}</h4>
