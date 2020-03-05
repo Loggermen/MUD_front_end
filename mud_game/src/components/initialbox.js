@@ -16,7 +16,8 @@ const useStyles = makeStyles({
 function Initialbox(props) {
     const classes = useStyles();
     const [info, setInfo] = useState({});
-    // console.log('this is props', props)
+    console.log('this is props', props)
+    console.log(info,"infoooo")
 
     useEffect(() => {
         axios
@@ -40,7 +41,10 @@ function Initialbox(props) {
             <h4>Player: {info.name}</h4>
             <h4>Current Area: {info.title}</h4>
             <h4>Area Description: {info.description}</h4>
+            <h4>Other players in room:{info.players}</h4>
+      
         </div>
+        
     )
 }
 
