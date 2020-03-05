@@ -4,7 +4,9 @@ import axios from 'axios';
 
 const useStyles = makeStyles({
     root: {
-      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    //   width: '100%',
       padding: '2%',
       border: '2px solid black',
       borderRadius: '8px'
@@ -34,7 +36,7 @@ function Initialbox(props) {
 
     return(
         <div className={classes.root}>
-            <h3>Info</h3>
+            <h3>Info:</h3>
             <h4>Player: {info.name}</h4>
             <h4>Current Area: {info.title}</h4>
             <h4>Area Description: {info.description}</h4>

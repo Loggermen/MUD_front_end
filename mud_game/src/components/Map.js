@@ -1,12 +1,22 @@
 import React, { useState, useEffect } from "react";
 import {axiosWithAuth}  from '../utils/axiosWithAuth.js'
+import { makeStyles } from '@material-ui/core/styles';
 
 // import './App.css';
 // import '../node_modules/react-vis/dist/style.css';
 import {XYPlot, LineSeries, HorizontalGridLines, YAxis, XAxis, LineMarkSeries, MarkSeries} from 'react-vis';
 
-function Map (){
+const useStyles = makeStyles({
+  app: {
+    border: '2px solid black',
+    borderRadius: '8px',
+    margin: '2%',
+    padding: '2%'
+  }
+})
 
+function Map (){
+  const classes = useStyles();
     // const [setRoomInfo, roomInfo] = useState();
 
       
@@ -24,7 +34,7 @@ function Map (){
     //    const roomData = Object.values(roomInfo)
 
     return (
-      <div className="App">
+      <div className={classes.app}>
            <XYPlot
     width={700}
     height={600}>
