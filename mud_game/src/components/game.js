@@ -17,7 +17,6 @@ function Game() {
 
     return(
         <div className={classes.game}>
-            <Map/>
             <Controls/>
         </div>
     )

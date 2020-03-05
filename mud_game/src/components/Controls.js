@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {axiosWithAuth} from'../utils/axiosWithAuth.js'
 import Initialbox from './initialbox';
 import { makeStyles } from '@material-ui/core/styles';
+import Map from './Map.js'
 
 const useStyles = makeStyles({
     information: {
@@ -54,8 +55,9 @@ const Controls = () => {
     const movement = input => {
 
         axiosWithAuth()
-            .post('https://lambda-mud-test.herokuapp.com/api/adv/move/', {direction: input})
+            .post('https://lumbwars.herokuapp.com/api/adv/move/', {direction: input})
             .then(response => {
+                console.log(response.data)
                 setMoved(response.data)
             })
                 // console.log(response, "moveeeeeeee"))
@@ -69,6 +71,8 @@ const Controls = () => {
 
     return (
         <div className={classes.information}>
+        {/* <div> */}
+            <Map moved={moved}/>
             <Initialbox moved={moved}/>
             <div className={classes.box}>
                 <h3>Directions:</h3>
