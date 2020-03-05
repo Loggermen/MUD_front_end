@@ -43,7 +43,7 @@ const Register = (props) => {
     console.log(values);
 
     axios
-      .post('https://lumbwars.herokuapp.com/api/registration/', values)
+      .post('https://lumbwars-test.herokuapp.com/api/registration/', values)
       // .then(response => console.log(response.data, "login"))
       .then(response => {
         localStorage.setItem('Token', response.data.key);
