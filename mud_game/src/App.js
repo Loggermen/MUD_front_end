@@ -31,7 +31,7 @@ function App(props) {
 
 
         <Route exact path="/login" component={Loginpage}/>
-        <Route exact path="/register" component={Register}/>
+        <Route exact path="/" component={Register}/>
         <PrivateRoute 
           path="/game" 
           component={Game}/>
