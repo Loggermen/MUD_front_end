@@ -136,7 +136,16 @@ function Map(props) {
       }
     ],
     player_position: 0
+
   };
+
+  
+ 
+
+  if (roomInfo.length < 1) {
+    return <span>Loading...</span>
+  }
+
   const position = localStorage.getItem("playerPos");
 
   let curPost = [];
@@ -171,6 +180,8 @@ function Map(props) {
   // console.log(roomPoints, "roompoints")
 
   ////////////////////////////////
+
+
   const roomPoints = [];
   const pointmap = roomDemo.room_list.map(i => {
     const x = i.x;
