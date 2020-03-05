@@ -18,6 +18,9 @@ import { generatePoints } from "react-vis/dist/utils/axis-utils";
 function Map(props) {
   const [roomInfo, setRoomInfo] = useState([]);
 
+  
+
+
   console.log(roomInfo, "ROOMINFO");
 
   useEffect(() => {
@@ -143,14 +146,27 @@ function Map(props) {
  
 
   if (roomInfo.length < 1) {
-    return <span>Loading...</span>
+    localStorage.setItem("playerPos", 1);
+  
   }
+    // let position = localStorage.getItem("playerPos");
+
+  // if (!localStorage.getItem("playerPos")) {
+  //   let position = 0}
+  //   else{
+  //     let position = 0;
+  //   }
+  // }
 
   const position = localStorage.getItem("playerPos");
+  
+  // if (positon.length <0) {
+  //   return <span>Loading...</span>
+  // }
 
   let curPost = [];
-  const nexX = roomDemo.room_list[position - 1].x;
-  const nexY = roomDemo.room_list[position - 1].y;
+  const nexX = roomDemo.room_list[position-1 ].x;
+  const nexY = roomDemo.room_list[position -1].y;
   let xandy = { x: nexX, y: nexY };
   curPost.push(xandy);
 
