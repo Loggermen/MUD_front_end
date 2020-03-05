@@ -13,14 +13,14 @@ import Mapc from './components/Map.js'
 
 function App(props) {
 
-  const handleLogout = () => {
-    localStorage.removeItem('Token');
-    window.location.reload()
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem('Token');
+  //   window.location.reload()
+  // };
   return (
     <div className="App">
       <header className="App-header">
-      <button onClick={handleLogout}>Logout</button>
+      {/* <button onClick={handleLogout}>Logout</button> */}
 
       <Router>
       <Header/>

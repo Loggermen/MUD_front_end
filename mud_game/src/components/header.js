@@ -21,13 +21,17 @@ const useStyles = makeStyles({
 
 const Header = () => {
     const classes = useStyles();
+    const handleLogout = () => {
+        localStorage.removeItem('Token');
+        window.location.reload()
+      };
 
     return (
         <div className={classes.root}>
-            <div>Hello</div>
+            <Link className={classes.link} to='/game'>Game</Link>
             <Link className={classes.link} to="/login">Login</Link>
             <Link className={classes.link} to='/register'>Register</Link>
-            <Link className={classes.link} to='/game'>Game</Link>
+            <Link className={classes.link} onClick={handleLogout}>Logout</Link>
         </div>
     )
 }
