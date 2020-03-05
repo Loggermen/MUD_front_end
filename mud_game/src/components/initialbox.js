@@ -4,8 +4,10 @@ import axios from 'axios';
 
 const useStyles = makeStyles({
     root: {
-      width: '20%',
-      border: '2px solid black'
+      width: '100%',
+      padding: '2%',
+      border: '2px solid black',
+      borderRadius: '8px'
     }
   });
 
