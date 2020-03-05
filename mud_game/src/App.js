@@ -6,6 +6,7 @@ import Loginpage from './components/loginpage';
 import Register from './components/register';
 import PrivateRoute from './components/privateroute';
 import Game from './components/game';
+import Header from './components/header';
 import Controls from './components/Controls.js';
 import Mapc from './components/Map.js'
 
@@ -22,19 +23,7 @@ function App(props) {
       <button onClick={handleLogout}>Logout</button>
 
       <Router>
-      <div className="App">
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to='/register'>Register</Link>
-          </li>
-          <li>
-            <Link to='/game'>Game</Link>
-          </li>
-        </ul>
-      </div>
+      <Header/>
       <switch>
       <PrivateRoute exact path="/controls" component={Controls}/>
       <PrivateRoute exact path="/map" component={Mapc}/>

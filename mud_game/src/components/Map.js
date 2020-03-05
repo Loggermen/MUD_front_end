@@ -24,7 +24,7 @@ function Map(props) {
     axiosWithAuth()
       .get("https://lumbwars.herokuapp.com/api/adv/rooms")
       .then(response => {
-        console.log(response.data.player_position, "MAP RESPONSE");
+        console.log(response.data, "MAP RESPONSE");
         localStorage.setItem("playerPos", response.data.player_position);
 
         setRoomInfo(response.data.room_list);
@@ -149,8 +149,8 @@ function Map(props) {
   const position = localStorage.getItem("playerPos");
 
   let curPost = [];
-  const nexX = roomDemo.room_list[position-1 ].x;
-  const nexY = roomDemo.room_list[position -1].y;
+  const nexX = roomDemo.room_list[position - 1].x;
+  const nexY = roomDemo.room_list[position - 1].y;
   let xandy = { x: nexX, y: nexY };
   curPost.push(xandy);
 
