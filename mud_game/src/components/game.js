@@ -8,7 +8,7 @@ function Game() {
         <div>
             {/* <Initialbox/> */}
             <div>Hello</div>
-            <Map/>
+            {/* <Map/> */}
             <Controls/>
         </div>
     )

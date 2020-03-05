@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {axiosWithAuth} from'../utils/axiosWithAuth.js'
 import Initialbox from './initialbox';
+import Map from './Map.js'
 
 const Controls = () => {
     const [moved, setMoved] = useState();
@@ -12,8 +13,9 @@ const Controls = () => {
     const movement = input => {
 
         axiosWithAuth()
-            .post('https://lambda-mud-test.herokuapp.com/api/adv/move/', {direction: input})
+            .post('https://lumbwars.herokuapp.com/api/adv/move/', {direction: input})
             .then(response => {
+                console.log(response.data)
                 setMoved(response.data)
             })
                 // console.log(response, "moveeeeeeee"))
@@ -27,6 +29,7 @@ const Controls = () => {
 
     return (
         <div>
+            <Map moved={moved}/>
             <Initialbox moved={moved}/>
             <button onClick={() => movement("n")}>North</button>
             <button onClick={() => movement("s")}>South</button>

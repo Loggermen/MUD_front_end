@@ -6,27 +6,38 @@ import {axiosWithAuth}  from '../utils/axiosWithAuth.js'
 import {XYPlot, LineSeries, HorizontalGridLines, YAxis, XAxis, LineMarkSeries, MarkSeries} from 'react-vis';
 import { generatePoints } from "react-vis/dist/utils/axis-utils";
 
-function Map (){
+function Map (props){
 
     const [roomInfo, setRoomInfo] = useState();
 
-    
+    console.log(roomInfo,"ROOMINFO")
+   
 
      useEffect(() => {
          
         axiosWithAuth()
-        .get('https://lambda-mud-test.herokuapp.com/api/adv/rooms')
+        .get('https://lumbwars.herokuapp.com/api/adv/rooms')
         .then(response => {
-          setRoomInfo(response.data)
-        
+          console.log(response.data.player_position,"MAP RESPONSE")
+          localStorage.setItem('playerPos', response.data.player_position)
+
+
+          setRoomInfo(response.data.room_list)
+        //   response.data.player_position(ply => {
+        //     if(ply === response.data.room_list.x){
+        //       ply['position'] = response.data.room_list.x
+        //       return ply
+        //     }})
+        // console.log(response.data.room_list.x,"here")
 
             
          
         })
         .catch(error => console.log('error'))
-       }, []);
+       }, [props]);
      
-       console.log(roomInfo, "infooo")
+    
+      //  console.log(roomInfo, "infooo")
 
 //  useEffect(()=> {
 
@@ -127,18 +138,31 @@ const testData ={
       }
     ],
     "player_position": 0
+
   }
-  const desc = roomDemo.room_list[0].description
+  const position = localStorage.getItem('playerPos')
+
+let curPost=[]
+   const nexX = roomDemo.room_list[position].x
+  const nexY = roomDemo.room_list[position].y
+  let xandy = {x:nexX, y:nexY}
+  curPost.push(xandy)
+ 
+
+  // const desgc = roomDemo.room_list[3].y
+  // console.log(roomInfo,"info")
+  // console.log(num3,"num")
+  // const playerPosition = room
 
 // WORKS
-  // const pointmap = roomDemo.room_list.map((i) =>( {
-   
-  //   x: i.x,
-  //   y: i.y
-  
-  //  }))
-  //  console.log(pointmap, "poitmap")
- /////////////////////////////////////////////
+//   const pointsmap = roomDemo.room_list.map((i) =>( {
+//    if i.id = 3 {
+//     x: i.x,
+//     y: i.y
+//    }
+//    }))
+//    console.log(pointmap, "poitmap")
+ ///////////////////////////////////////////
   
 
 
@@ -151,32 +175,32 @@ const testData ={
 //     })
 // console.log(roomPoints, "roompoints")
 
-const roomPoints =[]
-const pointmap = roomDemo.room_list.map((i) => {
-   const x = i.x;
-   const y = i.y
+// const roomPoints =[]
+// const pointmap = roomInfo.map((i) => {
+//    const x = i.x;
+//    const y = i.y
 
-   let xandy = {x:x, y:y}
-   roomPoints.push(xandy)
- })
- console.log(pointmap, "poitmap")
- console.log(roomPoints, "roompointsss")
+//    let xandy = {x:x, y:y}
+//    roomPoints.push(xandy)
+//  })
+// //  console.log(pointmap, "poitmap")
+//  console.log(roomPoints, "roompointsss")
 
 
 
- const newpoints=[];
- for (let p in roomDemo) {
-   let thenewdata = roomDemo[p][0];
-   newpoints.push(thenewdata);
- }
- console.log(newpoints,"newpointsworking")
+//  const newpoints=[];
+//  for (let p in roomDemo) {
+//    let thenewdata = roomDemo[p][0];
+//    newpoints.push(thenewdata);
+//  }
+//  console.log(newpoints,"newpointsworking")
 
-  const points=[];
-for (let p in testData) {
-  let newdata = testData[p][0];
-  points.push(newdata);
-}
-console.log(points,"working")
+//   const points=[];
+// for (let p in testData) {
+//   let newdata = testData[p][0];
+//   points.push(newdata);
+// }
+// console.log(points,"working")
 
     return (
       <div className="App">
@@ -185,30 +209,45 @@ console.log(points,"working")
     height={600}>
     <HorizontalGridLines />
     <LineMarkSeries
-    data={roomPoints}
-      // data={[
-      //   {x: 0, y: 1},
-      //   {x: 0, y: 2},
-      //   {x: 0.1, y: 2},
-      //   {x: -0.1, y: 2},
-      //   {x: 0, y: 2},
-      //   {x: 0, y: 3},
-      //   {x: 0, y: 4},
-      //   {x: -0.1, y: 4},
-      //   {x: -0.1, y: 5},
-      //   {x: -0.1, y: 6},
-      //   {x: -0.1, y: 7},
+    // data={roomPoints}
+    
+      data={[
+        {x: 0, y: 1},
+        {x: 0, y: 2},
+        {x: 0.1, y: 2},
+        {x: -0.1, y: 2},
+        {x: 0, y: 2},
+        {x: 0, y: 3},
+        {x: 0, y: 4},
+        {x: -0.1, y: 4},
+        {x: -0.1, y: 5},
+        {x: -0.1, y: 6},
+        {x: -0.1, y: 7},
              
-      // ]}
+      ]}
       lineStyle={{stroke:"black", fill: "none"}}
       markStyle={{ stroke:"red"}}
+     
       />
+ <MarkSeries
+ current={"pig"}
+ highlight="yellow"
+ size="15"
+ data={curPost}
+//  data={[
+//   {x: 0, y: 1},
 
+       
+// ]}
+// style={{cursor:"pointer"}}
+ 
+ />
 
 <XAxis />
   <YAxis />
   </XYPlot>
-  <h1>{desc}</h1>
+  <h1>{nexX}</h1>
+
       </div>
     );
   }

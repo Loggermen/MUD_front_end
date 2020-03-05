@@ -8,7 +8,7 @@ const Register = () => {
     console.log(values);
 
     axios
-      .post('https://lambda-mud-test.herokuapp.com/api/registration/', values)
+      .post('https://lumbwars.herokuapp.com/api/registration/', values)
       // .then(response => console.log(response.data, "login"))
       .then(response => {
           console.log('response', response)

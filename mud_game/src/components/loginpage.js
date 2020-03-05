@@ -26,7 +26,7 @@ const LoginPage = (props) => {
         event.preventDefault();
 
         axios
-            .post('https://lambda-mud-test.herokuapp.com/api/login/', newLogin)
+            .post('https://lumbwars.herokuapp.com/api/login/', newLogin)
             // .then(response => console.log(response.data, "login"))
             .then(response => {
                 localStorage.setItem('Token', response.data.key);
