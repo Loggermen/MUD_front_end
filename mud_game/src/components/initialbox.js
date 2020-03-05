@@ -12,14 +12,14 @@ const useStyles = makeStyles({
 function Initialbox(props) {
     const classes = useStyles();
     const [info, setInfo] = useState({});
-    console.log('this is props', props)
+    // console.log('this is props', props)
 
     useEffect(() => {
         axios
-        .get('https://lambda-mud-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
+        .get('https://lumbwars.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
             "Content-Type": "application/json"})
         .then(response => {
-            console.log('information', response);
+            // console.log('information', response);
             setInfo(response.data);
             })
 
@@ -28,7 +28,7 @@ function Initialbox(props) {
         });
     },[props]);
 
-    console.log(info, 'THIS IS INFO after the axios call');
+    // console.log(info, 'THIS IS INFO after the axios call');
 
     return(
         <div className={classes.root}>
