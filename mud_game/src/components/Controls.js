@@ -47,7 +47,7 @@ const useStyles = makeStyles({
 const Controls = () => {
     const classes = useStyles();
     const [moved, setMoved] = useState('');
-    console.log(moved,"movestate")
+    // console.log(moved,"movestate")
     // const [inputs, setInputs] = useState({
     //     direction: "",
         
@@ -58,14 +58,10 @@ const Controls = () => {
         axiosWithAuth()
             .post('https://lumbwars-test.herokuapp.com/api/adv/move/', {direction: input})
             .then(response => {
-                console.log(response.data, "MOVeeeEee")
+                // console.log(response.data, "MOVeeeEee")
                 setMoved(response.data)
             })
-                // console.log(response, "moveeeeeeee"))
-            // .then(response => {
-            //     console.log('response', response)
-
-            // })
+          
             .catch(err => console.log(err.response));
     }
 
