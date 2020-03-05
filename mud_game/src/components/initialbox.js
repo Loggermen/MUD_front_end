@@ -20,7 +20,7 @@ function Initialbox(props) {
 
     useEffect(() => {
         axios
-        .get('https://lumbwars.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
+        .get('https://lumbwars-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
             "Content-Type": "application/json"})
         .then(response => {
             // console.log('information', response);
