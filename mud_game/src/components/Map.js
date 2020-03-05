@@ -8,7 +8,7 @@ import { generatePoints } from "react-vis/dist/utils/axis-utils";
 
 function Map (props){
 
-    const [roomInfo, setRoomInfo] = useState();
+    const [roomInfo, setRoomInfo] = useState([]);
 
     console.log(roomInfo,"ROOMINFO")
    
@@ -90,6 +90,17 @@ const testData ={
         "e_to": 0,
         "w_to": 0,
         "x":0,
+        "y":0,
+      },
+      {
+        "id": 2,
+        "title": "Foyer",
+        "description": "Dim light filters in from the south. Dusty\npassages run north and east.",
+        "n_to": 3,
+        "s_to": 1,
+        "e_to": 4,
+        "w_to": 0,
+        "x":0,
         "y":1,
       },
       {
@@ -103,17 +114,7 @@ const testData ={
         "x":0,
         "y":2,
       },
-      {
-        "id": 2,
-        "title": "Foyer",
-        "description": "Dim light filters in from the south. Dusty\npassages run north and east.",
-        "n_to": 3,
-        "s_to": 1,
-        "e_to": 4,
-        "w_to": 0,
-        "x":0.1,
-        "y":2,
-      },
+    
       {
         "id": 4,
         "title": "Narrow Passage",
@@ -122,8 +123,8 @@ const testData ={
         "s_to": 0,
         "e_to": 0,
         "w_to": 2,
-        "x":0,
-        "y":2,
+        "x":1,
+        "y":1,
       },
       {
         "id": 5,
@@ -133,8 +134,8 @@ const testData ={
         "s_to": 4,
         "e_to": 0,
         "w_to": 0,
-        "x":0,
-        "y":2,
+        "x":1,
+        "y":3,
       }
     ],
     "player_position": 0
@@ -143,8 +144,8 @@ const testData ={
   const position = localStorage.getItem('playerPos')
 
 let curPost=[]
-   const nexX = roomDemo.room_list[position].x
-  const nexY = roomDemo.room_list[position].y
+   const nexX = roomDemo.room_list[position-1].x
+  const nexY = roomDemo.room_list[position-1].y
   let xandy = {x:nexX, y:nexY}
   curPost.push(xandy)
  
@@ -174,7 +175,18 @@ let curPost=[]
 //       roomPoints.push(xandy)
 //     })
 // console.log(roomPoints, "roompoints")
+const roomPoints =[]
+const pointmap = roomDemo.room_list.map((i) => {
+  const x = i.x;
+    const y = i.y
+  
+   let xandy = {x:x, y:y}
+   roomPoints.push(xandy)
+ })
+console.log(roomPoints, "roompoints")
 
+
+//WORKING FROM DATA COMING IN
 // const roomPoints =[]
 // const pointmap = roomInfo.map((i) => {
 //    const x = i.x;
@@ -209,23 +221,24 @@ let curPost=[]
     height={600}>
     <HorizontalGridLines />
     <LineMarkSeries
-    // data={roomPoints}
+    data={roomPoints}
+
     
-      data={[
-        {x: 0, y: 1},
-        {x: 0, y: 2},
-        {x: 0.1, y: 2},
-        {x: -0.1, y: 2},
-        {x: 0, y: 2},
-        {x: 0, y: 3},
-        {x: 0, y: 4},
-        {x: -0.1, y: 4},
-        {x: -0.1, y: 5},
-        {x: -0.1, y: 6},
-        {x: -0.1, y: 7},
+      // data={[
+      //   {x: 0, y: 1},
+      //   {x: 0, y: 2},
+      //   {x: 0.1, y: 2},
+      //   {x: -0.1, y: 2},
+      //   {x: 0, y: 2},
+      //   {x: 0, y: 3},
+      //   {x: 0, y: 4},
+      //   {x: -0.1, y: 4},
+      //   {x: -0.1, y: 5},
+      //   {x: -0.1, y: 6},
+      //   {x: -0.1, y: 7},
              
-      ]}
-      lineStyle={{stroke:"black", fill: "none"}}
+      // ]}
+      lineStyle={{stroke:"none", fill: "none"}}
       markStyle={{ stroke:"red"}}
      
       />
