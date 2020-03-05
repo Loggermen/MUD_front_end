@@ -34,16 +34,15 @@ function Map(props) {
 
   const [roomInfo, setRoomInfo] = useState([]);
 
-  console.log(roomInfo, "ROOMINFO");
+  // console.log(roomInfo, "ROOMINFO");
 
   useEffect(() => {
     axiosWithAuth()
       .get("https://lumbwars-test.herokuapp.com/api/adv/rooms/")
       .then(response => {
-        console.log(response.data, "MAP RESPONSE");
+        // console.log(response.data, "MAP RESPONSE");
         localStorage.setItem("playerPosX", response.data.player_x_pos);
         localStorage.setItem("playerPosY", response.data.player_y_pos);
-        // localStorage.setItem("playerPos", response.data.player_position);
         setRoomInfo(response.data.room_list);
       })
       .catch(error => console.log("error"));
@@ -72,7 +71,7 @@ function Map(props) {
     roomPoints.push(xandy);
   });
   //  console.log(pointmap, "poitmap")
-  console.log(roomPoints, "roompointsss");
+  // console.log(roomPoints, "roompointsss");
 
   if (roomInfo.length < 0) {
     return <span>Loading...</span>;
@@ -80,7 +79,7 @@ function Map(props) {
 
   return (
     <div className={classes.Map}>
-      <XYPlot width={600} height={600}>
+      <XYPlot width={700} height={700}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <LineMarkSeries
@@ -91,19 +90,7 @@ function Map(props) {
           markStyle={{ stroke: "black" }}
         />
 
-        {/* <MarkSeries
-          highlight="yellow"
-          size="20"
-          strokeWidth={3}
-          data={curPost}
-          animation
-          color="yellow"
-          stroke= "black"
-          customComponent="star" 
-
-
-          // style={{cursor:"pointer"}}
-        /> */}
+   
         <CustomSVGSeries
           customComponent="star"
           highlight="yellow"

@@ -16,15 +16,15 @@ const useStyles = makeStyles({
 function Initialbox(props) {
     const classes = useStyles();
     const [info, setInfo] = useState({});
-    console.log('this is props', props)
-    console.log(info,"infoooo")
+    // console.log('this is props', props)
+    // console.log(info,"infoooo")
 
     useEffect(() => {
         axios
         .get('https://lumbwars-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
             "Content-Type": "application/json"})
         .then(response => {
-            console.log('information', response);
+            // console.log('information', response);
             setInfo(response.data);
             })
 
