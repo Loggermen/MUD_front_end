@@ -3,7 +3,7 @@ import {axiosWithAuth}  from '../utils/axiosWithAuth.js'
 
 // import './App.css';
 // import '../node_modules/react-vis/dist/style.css';
-import {XYPlot, LineSeries, HorizontalGridLines, YAxis, XAxis, LineMarkSeries, MarkSeries} from 'react-vis';
+import {XYPlot, LineSeries, HorizontalGridLines, YAxis, XAxis, LineMarkSeries, MarkSeries, VerticalGridLines} from 'react-vis';
 import { generatePoints } from "react-vis/dist/utils/axis-utils";
 
 function Map (props){
@@ -217,9 +217,12 @@ console.log(roomPoints, "roompoints")
     return (
       <div className="App">
            <XYPlot
-    width={700}
-    height={600}>
-    <HorizontalGridLines />
+          
+    width={500}
+    height={500}>
+   
+    <VerticalGridLines />
+  <HorizontalGridLines />
     <LineMarkSeries
     data={roomPoints}
 
@@ -246,7 +249,11 @@ console.log(roomPoints, "roompoints")
  current={"pig"}
  highlight="yellow"
  size="15"
+ strokeWidth={2}
  data={curPost}
+   animation
+ 
+ 
 //  data={[
 //   {x: 0, y: 1},
 

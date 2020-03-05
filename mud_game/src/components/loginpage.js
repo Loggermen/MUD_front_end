@@ -30,8 +30,7 @@ const LoginPage = (props) => {
             // .then(response => console.log(response.data, "login"))
             .then(response => {
                 localStorage.setItem('Token', response.data.key);
-                console.log('response', response)
-
+                props.history.push('/game')
             })
             .catch(err => console.log(err.response));
 
