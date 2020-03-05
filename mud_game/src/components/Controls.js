@@ -46,7 +46,8 @@ const useStyles = makeStyles({
 
 const Controls = () => {
     const classes = useStyles();
-    const [moved, setMoved] = useState();
+    const [moved, setMoved] = useState('');
+    console.log(moved,"movestate")
     // const [inputs, setInputs] = useState({
     //     direction: "",
         
@@ -55,9 +56,9 @@ const Controls = () => {
     const movement = input => {
 
         axiosWithAuth()
-            .post('https://lumbwars.herokuapp.com/api/adv/move/', {direction: input})
+            .post('https://lumbwars-test.herokuapp.com/api/adv/move/', {direction: input})
             .then(response => {
-                console.log(response.data)
+                console.log(response.data, "MOVeeeEee")
                 setMoved(response.data)
             })
                 // console.log(response, "moveeeeeeee"))
@@ -76,6 +77,7 @@ const Controls = () => {
             <Initialbox moved={moved}/>
             <div className={classes.box}>
                 <h3>Directions:</h3>
+                <h1>{moved.error_msg}</h1>
                 <div className={classes.controls}>
                     <button className={classes.button} onClick={() => movement("n")}>North</button>
                     <button className={classes.button} onClick={() => movement("s")}>South</button>

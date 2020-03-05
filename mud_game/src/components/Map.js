@@ -25,10 +25,15 @@ function Map(props) {
 
   useEffect(() => {
     axiosWithAuth()
-      .get("https://lumbwars.herokuapp.com/api/adv/rooms")
+    // https://lumbwars.herokuapp.com
+      .get("https://lumbwars-test.herokuapp.com/api/adv/rooms/")
       .then(response => {
         console.log(response.data, "MAP RESPONSE");
-        localStorage.setItem("playerPos", response.data.player_position);
+        localStorage.setItem("playerPosX", response.data.player_x_pos);
+        localStorage.setItem("playerPosY", response.data.player_y_pos);
+        // localStorage.setItem("playerPos", response.data.player_position);
+
+
 
         setRoomInfo(response.data.room_list);
         //   response.data.player_position(ply => {
@@ -164,9 +169,17 @@ function Map(props) {
   //   return <span>Loading...</span>
   // }
 
+  //for https://lumbwars.herokuapp.com
+  // let curPost = [];
+  // const nexX = roomDemo.room_list[position-1 ].x;
+  // const nexY = roomDemo.room_list[position -1].y;
+  // let xandy = { x: nexX, y: nexY };
+  // curPost.push(xandy);
+
+//for https://lumbwars-test.herokuapp.com/api/adv/rooms
   let curPost = [];
-  const nexX = roomDemo.room_list[position-1 ].x;
-  const nexY = roomDemo.room_list[position -1].y;
+  const nexX = localStorage.getItem("playerPosX")
+  const nexY = localStorage.getItem("playerPosY")
   let xandy = { x: nexX, y: nexY };
   curPost.push(xandy);
 
@@ -198,29 +211,29 @@ function Map(props) {
   ////////////////////////////////
 
 
-  const roomPoints = [];
-  const pointmap = roomDemo.room_list.map(i => {
-    const x = i.x;
-    const y = i.y;
+  // const roomPoints = [];
+  // const pointmap = roomDemo.room_list.map(i => {
+  //   const x = i.x;
+  //   const y = i.y;
 
-    let xandy = { x: x, y: y };
-    roomPoints.push(xandy);
-  });
-  console.log(roomPoints, "roompoints");
+  //   let xandy = { x: x, y: y };
+  //   roomPoints.push(xandy);
+  // });
+  // console.log(roomPoints, "roompoints");
 
   ////////////////////////
 
   //WORKING FROM DATA COMING IN
-  // const roomPoints =[]
-  // const pointmap = roomInfo.map((i) => {
-  //    const x = i.x;
-  //    const y = i.y
+  const roomPoints =[]
+  const pointmap = roomInfo.map((i) => {
+     const x = i.x;
+     const y = i.y
 
-  //    let xandy = {x:x, y:y}
-  //    roomPoints.push(xandy)
-  //  })
-  // //  console.log(pointmap, "poitmap")
-  //  console.log(roomPoints, "roompointsss")
+     let xandy = {x:x, y:y}
+     roomPoints.push(xandy)
+   })
+  //  console.log(pointmap, "poitmap")
+   console.log(roomPoints, "roompointsss")
 
   /////////////////////////////
 
@@ -242,7 +255,7 @@ function Map(props) {
 
   return (
     <div className="App">
-      <XYPlot width={500} height={500}>
+      <XYPlot width={800} height={800}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <LineMarkSeries
