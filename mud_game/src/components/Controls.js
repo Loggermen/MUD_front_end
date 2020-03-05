@@ -77,12 +77,12 @@ const Controls = () => {
             <Initialbox moved={moved}/>
             <div className={classes.box}>
                 <h3>Directions:</h3>
-                <h1>{moved.error_msg}</h1>
+                <h3>{moved.error_msg}</h3>
                 <div className={classes.controls}>
                     <button className={classes.button} onClick={() => movement("n")}>North</button>
-                    <button className={classes.button} onClick={() => movement("s")}>South</button>
-                    <button className={classes.button} onClick={() => movement("e")}>East</button>
+                    <button className={classes.button} onClick={() => movement("s")}>South</button>                    
                     <button className={classes.button} onClick={() => movement("w")}>West</button>
+                    <button className={classes.button} onClick={() => movement("e")}>East</button>
                 </div>
             </div>
         </div>
