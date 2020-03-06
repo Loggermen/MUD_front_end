@@ -30,7 +30,7 @@ const Header = () => {
         <div className={classes.root}>
             <Link className={classes.link} to='/game'>Game</Link>
             <Link className={classes.link} to="/login">Login</Link>
-            <Link className={classes.link} to='/register'>Register</Link>
+            <Link className={classes.link} to='/'>Register</Link>
             <Link className={classes.link} onClick={handleLogout}>Logout</Link>
         </div>
     )

@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
-    //   width: '100%',
+      width: '10rem',
       padding: '2%',
       border: '2px solid black',
       borderRadius: '8px'
@@ -17,13 +17,14 @@ function Initialbox(props) {
     const classes = useStyles();
     const [info, setInfo] = useState({});
     // console.log('this is props', props)
+    // console.log(info,"infoooo")
 
     useEffect(() => {
         axios
         .get('https://lumbwars-test.herokuapp.com/api/adv/init/',{headers: { Authorization: `Token ${localStorage.getItem("Token")}`},
             "Content-Type": "application/json"})
         .then(response => {
-            console.log('information', response);
+            // console.log('information', response);
             setInfo(response.data);
             })
 
@@ -40,7 +41,10 @@ function Initialbox(props) {
             <h4>Player: {info.name}</h4>
             <h4>Current Area: {info.title}</h4>
             <h4>Area Description: {info.description}</h4>
+            <h4>Other players in room:{info.players}</h4>
+      
         </div>
+        
     )
 }
 
