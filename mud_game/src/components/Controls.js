@@ -10,12 +10,14 @@ const useStyles = makeStyles({
         // flexDirection: 'column',
         justifyContent: 'center',
         width: '100%',
+        background: "green",
     },
     box: {
         display: 'flex',
         flexDirection: 'column',
         padding: '4%',
         border: '2px solid black',
+        backgroundColor: 'green',
         borderRadius: '8px',
         margin: '1% 0%',
         marginRight:'1%'

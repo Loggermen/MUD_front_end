@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     flexDirection: "column",
     justifyContent: "space-evenly",
     width: "100%",
-    border: "5px solid black",
+    border: "3px solid black",
     background: "green",
     padding: "10px"
   },
