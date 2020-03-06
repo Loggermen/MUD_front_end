@@ -10,9 +10,6 @@ const useStyles = makeStyles({
         // flexDirection: 'column',
         justifyContent: 'center',
         width: '100%',
-        background: "green",
-
-
     },
     box: {
         display: 'flex',
