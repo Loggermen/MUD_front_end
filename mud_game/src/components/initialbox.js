@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     root: {
       display: 'flex',
       flexDirection: 'column',
-    //   width: '100%',
+      width: '10rem',
       padding: '2%',
       border: '2px solid black',
       borderRadius: '8px'
