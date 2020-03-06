@@ -26,6 +26,12 @@ const useStyles = makeStyles({
     border: "5px solid black",
     background: "green",
     padding: "10px"
+  },
+  directions: {
+    display: "flex",
+    // flexDirection: "column",
+    justifyContent: "space-evenly",
+    
   }
 });
 
@@ -107,8 +113,9 @@ function Map(props) {
   }
 
   return (
+    <div>
     <div className={classes.Map}>
-      <XYPlot width={700} height={700}>
+      <XYPlot width={700} height={600}>
         <VerticalGridLines />
         <HorizontalGridLines />
         <LineMarkSeries
@@ -132,15 +139,14 @@ function Map(props) {
         {/* <XAxis />
         <YAxis /> */}
       </XYPlot>
-      <div>
-        <h1>N{north}</h1>
-        <h1>S{south}</h1>
-        <h1>W{west}</h1>
-        <h1>E{east}</h1>
-        {north !== "0" ? <h1>Exit to the North</h1> : null}
-        {south !== "0" ? <h1>Exit to the South</h1> : null}
-        {west !== "0" ? <h1>Exit to the West</h1> : null}
-        {east !== "0" ? <h1>Exit to the East</h1> : null}
+      </div>
+      <div className={classes.directions}>
+        
+        {north !== "0" ? <h3>Exit to the North</h3> : null}
+        {south !== "0" ? <h3>Exit to the South</h3> : null}
+        {west !== "0" ? <h3>Exit to the West</h3> : null}
+        {east !== "0" ? <h3>Exit to the East</h3> : null}
+      
       </div>
     </div>
   );
