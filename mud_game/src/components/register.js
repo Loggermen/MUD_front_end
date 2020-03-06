@@ -47,7 +47,7 @@ const Register = (props) => {
       // .then(response => console.log(response.data, "login"))
       .then(response => {
         localStorage.setItem('Token', response.data.key);
-        props.history.push('/login')
+        props.history.push('/game')
       })
       .catch(err => console.log(err.response));
   };
