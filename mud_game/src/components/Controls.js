@@ -31,7 +31,6 @@ const useStyles = makeStyles({
         paddingTop: '0rem',
 
         justifyContent: 'center',
-        width: '100%'
         // border: 'solid 2px black',
         // borderRadius: '8px',
         // padding: '5% 2%'
@@ -39,7 +38,6 @@ const useStyles = makeStyles({
     button: {
         padding: '0.3em 1.2em',
         margin: '5% 2%',
-        width: '80px',
         border: '0.16em solid rgba(225,255,255,0)',
         height:'2rem',
         borderRadius: '2em',
