@@ -9,7 +9,9 @@ const useStyles = makeStyles({
       width: '10rem',
       padding: '2%',
       border: '2px solid black',
-      borderRadius: '8px'
+      borderRadius: '8px',
+      height:'41rem'
+
     }
   });
 
@@ -37,7 +39,7 @@ function Initialbox(props) {
 
     return(
         <div className={classes.root}>
-            <h3>Info:</h3>
+            <h2>Info:</h2>
             <h4>Player: {info.name}</h4>
             <h4>Current Area: {info.title}</h4>
             <h4>Area Description: {info.description}</h4>

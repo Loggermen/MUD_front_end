@@ -17,11 +17,15 @@ const useStyles = makeStyles({
     box: {
         display: 'flex',
         flexDirection: 'column',
-        padding: '4%',
+        paddingTop: '1%',
+        paddingLeft: '3%',
+        paddingRight: '4%',
         border: '2px solid black',
         borderRadius: '8px',
-        margin: '1% 0%',
-        marginRight:'1%'
+        marginTop: '1%',
+        marginRight:'1%',
+        width:'10rem',
+        height:'42.5rem'
 
         
     },
@@ -29,6 +33,7 @@ const useStyles = makeStyles({
         display: 'flex',
         width:'11rem',
         paddingTop: '0rem',
+        marginTop:'0rem',
 
         justifyContent: 'center',
         // border: 'solid 2px black',
@@ -38,6 +43,8 @@ const useStyles = makeStyles({
     button: {
         padding: '0.3em 1.2em',
         margin: '5% 2%',
+        marginTop:'2.5rem',
+
         border: '0.16em solid rgba(225,255,255,0)',
         height:'2rem',
         borderRadius: '2em',
@@ -56,7 +63,7 @@ const useStyles = makeStyles({
     button2: {
         padding: '0.3em 1.2em',
         margin: '5% 2%',
-        marginTop:'1.5rem',
+        marginTop:'5rem',
         border: '0.16em solid rgba(225,255,255,0)',
         height:'2rem',
         borderRadius: '2em',
@@ -94,6 +101,16 @@ const useStyles = makeStyles({
         // borderRadius: '8px',
         // padding: '5% 2%'
     },
+    erm: {
+        // display: 'flex',
+        // justifyContent: 'center',
+        // border: 'solid 2px black',
+        // borderRadius: '8px',
+        // padding: '5% 2%'
+                // marginTop: '5rem',
+
+        
+    },
 })
 
 const Controls = () => {
@@ -126,8 +143,7 @@ const Controls = () => {
             <Map moved={moved}/>
             </div>
             <div className={classes.box}>
-                <h3>Directions:</h3>
-                <h3>{moved.error_msg}</h3>
+                <h2>Directions:</h2>
                 <div className={classes.controls}>
                 <button className={classes.button2} onClick={() => movement("w")}>West</button>
 
@@ -138,6 +154,8 @@ const Controls = () => {
                     </div>
                     <button className={classes.button2} onClick={() => movement("e")}>East</button>
                 </div>
+                <h3 className={classes.erm}>{moved.error_msg}</h3>
+
             </div>
         </div>
     )
