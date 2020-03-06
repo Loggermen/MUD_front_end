@@ -20,7 +20,9 @@ const useStyles = makeStyles({
     },
     controls: {
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
+        width: '100%'
         // border: 'solid 2px black',
         // borderRadius: '8px',
         // padding: '5% 2%'
@@ -28,6 +30,7 @@ const useStyles = makeStyles({
     button: {
         padding: '0.3em 1.2em',
         margin: '5% 2%',
+        width: '80px',
         border: '0.16em solid rgba(225,255,255,0)',
         borderRadius: '2em',
         boxSizing: 'border-box',
@@ -80,9 +83,11 @@ const Controls = () => {
                 <h3>{moved.error_msg}</h3>
                 <div className={classes.controls}>
                     <button className={classes.button} onClick={() => movement("n")}>North</button>
-                    <button className={classes.button} onClick={() => movement("s")}>South</button>                    
-                    <button className={classes.button} onClick={() => movement("w")}>West</button>
-                    <button className={classes.button} onClick={() => movement("e")}>East</button>
+                    <div>
+                        <button className={classes.button} onClick={() => movement("w")}>West</button>
+                        <button className={classes.button} onClick={() => movement("e")}>East</button>
+                    </div>
+                    <button className={classes.button} onClick={() => movement("s")}>South</button>
                 </div>
             </div>
         </div>
