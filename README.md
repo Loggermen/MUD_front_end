@@ -5,12 +5,11 @@ Front end for the MUD game
 ### Tech Stack
 CSS | JavaScript | React
 
-
 # Installation
-Clone the repository
-cd into the app folder
-Run yarn install to install necessary packages
-Now you can run the scripts listed below to start the app in development mode or build the app for production.
+1. Clone the repository
+2. cd into the app folder
+3. Run yarn install to install necessary packages
+4. Now you can run the scripts listed below to start the app in development mode or build the app for production.
 
 # Available Scripts
 In the project directory, after running npm install or yarn install, you can run:
